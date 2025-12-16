@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Road Intersection H5 Game – Turning & Scoring</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    canvas { background: #3a3a3a; }
+    .ui {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+    .controls-left {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 6px;
+    }
+    .controls-right {
+      display: grid;
+      grid-template-columns: 80px;
+      gap: 6px;
+    }
+    button {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .arrow { background: #555; color: #fff; }
+    .red { background: #c0392b; color: #fff; }
+    .green { background: #27ae60; color: #fff; }
+  </style>
+</head>
+<body>
+  <div id="score">Score: 0</div>
+  <canvas id="game" width="400" height="400"></canvas>
+
+  <div class="ui">
+    <div class="controls-left">
+      <div></div><button class="arrow" onclick="selectDir('top')">⬆</button><div></div>
+      <button class="arrow" onclick="selectDir('left')">⬅</button><div></div><button class="arrow" onclick="selectDir('right')">➡</button>
+      <div></div><button class="arrow" onclick="selectDir('bottom')">⬇</button><div></div>
+    </div>
+    <div class="controls-right">
+      <button class="red" onclick="setSignal('red')">RED</button>
+      <button class="green" onclick="setSignal('green')">GREEN</button>
+    </div>
+  </div>
+
+<script>
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+
+const CENTER = 200;
+const ROAD_W = 80;
+const LANE_OFFSET = 12;
+const VEHICLE_LEN = 18;
+const VEHICLE_W = 10;
+const GAP = 4;
+
+let selectedDir = 'top';
+let score = 0;
+let gameOver = false;
+
+const signals = {
+  top: { left: 'red', straight: 'red', right: 'red' },
+  bottom: { left: 'red', straight: 'red', right: 'red' },
+  left: { left: 'red', straight: 'red', right: 'red' },
+  right: { left: 'red', straight: 'red', right: 'red' }
+};
+
+const vehicles = { top: [], bottom: [], left: [], right: [] };
+
+function randomTurn() {
+  const t = ['left', 'straight', 'right'];
+  return t[Math.floor(Math.random() * 3)];
+}
+
+function spawnVehicle(dir) {
+  const queue = vehicles[dir];
+  if (queue.length > 0 && queue[0].pos < VEHICLE_LEN + GAP) {
+    gameOver = true;
+    alert('Game Over! Final Score: ' + score);
+    return;
+  }
+  queue.unshift({ pos: 0, turn: randomTurn(), passed: false });
+}
+
+setInterval(() => {
+  if (!gameOver) {
+    const dirs = ['top', 'bottom', 'left', 'right'];
+    spawnVehicle(dirs[Math.floor(Math.random() * 4)]);
+  }
+}, 1500);
+
+function selectDir(dir) { selectedDir = dir; }
+
+function setSignal(color) {
+  signals[selectedDir].left = color;
+  signals[selectedDir].straight = color;
+  signals[selectedDir].right = color;
+}
+
+function update() {
+  Object.keys(vehicles).forEach(dir => {
+    const lane = vehicles[dir];
+    for (let i = lane.length - 1; i >= 0; i--) {
+      const v = lane[i];
+      const front = lane[i + 1];
+      const stopLine = 90;
+
+      if (!v.passed) {
+        const sig = signals[dir][v.turn];
+        const canMove = sig === 'green';
+
+        if (canMove && (!front || front.pos - v.pos > VEHICLE_LEN + GAP)) {
+          v.pos += 1.2;
+        }
+        if (v.pos > stopLine) v.passed = true;
+      } else {
+        v.pos += 2.5;
+        if (v.pos > 300) {
+          lane.splice(i, 1);
+          score += 10;
+          document.getElementById('score').innerText = 'Score: ' + score;
+        }
+      }
+    }
+  });
+}
+
+function drawRoad() {
+  ctx.fillStyle = '#555';
+  ctx.fillRect(0, CENTER - ROAD_W / 2, 400, ROAD_W);
+  ctx.fillRect(CENTER - ROAD_W / 2, 0, ROAD_W, 400);
+}
+
+function drawSignals() {
+  const t = 6;
+  Object.keys(signals).forEach(dir => {
+    const s = signals[dir];
+    if (dir === 'top') {
+      drawTriSignal(CENTER - ROAD_W / 2, CENTER - ROAD_W / 2 - t, ROAD_W / 2, t, s);
+    }
+    if (dir === 'bottom') {
+      drawTriSignal(CENTER, CENTER + ROAD_W / 2, ROAD_W / 2, t, s);
+    }
+    if (dir === 'left') {
+      drawTriSignal(CENTER - ROAD_W / 2 - t, CENTER, t, ROAD_W / 2, s, true);
+    }
+    if (dir === 'right') {
+      drawTriSignal(CENTER + ROAD_W / 2, CENTER - ROAD_W / 2, t, ROAD_W / 2, s, true);
+    }
+  });
+}
+
+function drawTriSignal(x, y, w, h, s, vertical) {
+  const parts = ['left', 'straight', 'right'];
+  parts.forEach((p, i) => {
+    ctx.fillStyle = s[p] === 'green' ? '#0f0' : '#f00';
+    if (!vertical) ctx.fillRect(x + (w / 3) * i, y, w / 3, h);
+    else ctx.fillRect(x, y + (h / 3) * i, w, h / 3);
+  });
+}
+
+function drawVehicles() {
+  ctx.fillStyle = '#3498db';
+  Object.keys(vehicles).forEach(dir => {
+    vehicles[dir].forEach(v => {
+      let x = CENTER, y = CENTER;
+      if (dir === 'top') { y = v.pos; x -= LANE_OFFSET; }
+      if (dir === 'bottom') { y = 400 - v.pos; x += LANE_OFFSET; }
+      if (dir === 'left') { x = v.pos; y += LANE_OFFSET; }
+      if (dir === 'right') { x = 400 - v.pos; y -= LANE_OFFSET; }
+
+      ctx.fillRect(x - VEHICLE_W / 2, y - VEHICLE_LEN / 2, VEHICLE_W, VEHICLE_LEN);
+
+      // turn indicator
+      ctx.fillStyle = '#ff0';
+      if (v.turn !== 'straight') ctx.fillRect(x + (v.turn === 'right' ? 4 : -4), y - 2, 3, 3);
+      ctx.fillStyle = '#3498db';
+    });
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, 400, 400);
+  drawRoad();
+  drawSignals();
+  drawVehicles();
+}
+
+function loop() {
+  if (!gameOver) {
+    update();
+    draw();
+    requestAnimationFrame(loop);
+  }
+}
+loop();
+</script>
+</body>
+</html>
