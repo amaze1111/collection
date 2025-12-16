@@ -1,0 +1,10 @@
+1. Game starts with game charactor(sprite henceforth) on the base.
+2. User will press anywhere on the screen to define length of path. Shorter press = smaller path, longer press = longer path
+3. As the sprite moves to the subsequent block, score is increased.
+4. Goal is to move to the next block by creating paths of adequate length
+5. Once transition to the next block is successful, block with sprite will move to the left edge of the screen
+6. The frame will seem to go forward exposing more blocks on the right 
+7. When user presses for path creation, path is created vertically upwards.
+8. Once user stops pressing, the path then rotates 90degrees clockwise centered along the bottom corner
+9.Once the path is laid horizontally, character moves along the path.
+10. If the path is such that its end does not fall within the display width of the next block, character dies

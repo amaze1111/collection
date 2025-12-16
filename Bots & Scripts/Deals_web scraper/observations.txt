@@ -1,0 +1,14 @@
+1. On grabon, myntra coupons are shown as a list on https://www.grabon.in/myntra-coupons/
+2. To access a coupon, user has to click button called 'SHOW COUPON CODE'
+3. Button details
+    3.1 Element - <div class="visible-lg">SHOW COUPON CODE</div>
+    3.2. Selector - #cpn_209448 > div.gcbr.go-cpn-show.go-cpy > div.gcbr-r > span > div
+    3.3. Full XPath - /html/body/main/section[2]/div/div[1]/ul[1]/li[2]/div/div[1]/div[2]/span/div
+    3.4. Coupon code detail is given in <span class="visible-lg">MYNTRA300</span>. This is just above <div class="visible-lg">SHOW COUPON CODE</div> 
+4. There are multiple 'SHOW COUPON CODE' buttons on that page.
+5. Upon clicking the button, a new browser window opens like 'https://www.grabon.in/coupon-codes/209448/'
+6. Offer details 
+    6.1 Element - <p>Special Offer: Flat 35% OFF On Minimum Purchase Of Rs 500 | New User </p>
+    6.2 Selector - #cpn_209448 > div.gcbr.go-cpn-show.go-cpy > p
+    6.3 Full XPath - /html/body/main/section[2]/div/div[1]/ul[1]/li[2]/div/div[1]/p
+    

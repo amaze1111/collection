@@ -1,0 +1,324 @@
+Create a web portal for performance management (appraisals). 
+Access to the portal should be restricted to employees only.
+
+The portal should include the following features:
+1) Login page
+1.1) Employee ID, Password fields
+1.2) 'Forgot Password' link, Login button
+2) Performance Dashboard - Only Admins and respective Managers should have access
+2.1) View performance metrics
+2.2) View appraisal history
+3) Appraisal Submission
+3.1) Fill appraisal form
+3.2) Submit button
+4) Admin Panel
+4.1) View all employee appraisals
+4.2) Generate performance reports
+5) Notifications
+5.1) Email notifications for upcoming appraisals
+5.2) In-portal notifications
+6) Security
+6.1) SSL encryption
+6.2) Two-factor authentication
+7) User Management - Only Admins shoud have access
+7.1) Add/Edit/Delete employee accounts
+7.2) Assign roles (Employee, Manager, Admin)
+8) Audit Trail
+8.1) Log all user activities
+8.2) View audit logs in Admin Panel
+9) Responsive Design
+9.1) Accessible on desktop and mobile devices
+10) Help & Support
+# 10.1) FAQ section
+10.2) Contact support form
+# 11) Data Backup & Recovery
+# 11.1) Regular data backups
+# 11.2) Data recovery options
+# 12) Performance Analytics
+# 12.1) Visual charts and graphs
+# 12.2) Trend analysis over time
+13) Integration
+# 13.1) Integrate with existing HR systems
+13.2) API access for third-party tools
+13.3) Develper documentation for API
+# 14) Customization
+# 14.1) Customizable appraisal forms
+# 14.2) Customizable performance metrics
+# 15) Localization
+# 15.1) Multi-language support
+# 15.2) Regional settings (date format, currency)
+# 16) Compliance
+# 16.1) GDPR compliance
+# 16.2) Data retention policies
+17) Feedback System
+17.1) Employee feedback on appraisals
+17.2) Manager feedback on employee performance
+18) Training & Development - Keep this as coming soon
+18.1) Link to training resources
+18.2) Track training completion
+19) Search Functionality
+19.1) Search employee appraisals
+19.2) Filter appraisals by date, rating, etc.
+20) Performance Goals
+20.1) Set and track performance goals
+20.2) Goal reminders and updates
+21) Mobile App
+21.1) iOS and Android support
+21.2) Push notifications for important updates
+# 22) Scalability
+# 22.1) Handle increasing number of users
+# 22.2) Optimize performance for large datasets
+23) User Interface
+23.1) Intuitive navigation
+23.2) Consistent design language
+# 24) Testing & QA
+# 24.1) Regular testing for bugs
+# 24.2) User acceptance testing
+# 25) Documentation
+HR PMS — Requirements (cleaned)
+
+Scope
+-----
+Create a web portal for performance management (appraisals). Access to the portal should be restricted to employees only.
+
+Features (core)
+---------------
+1) Login page
+	1.1) Employee ID and Password fields
+	1.2) 'Forgot Password' link and Login button
+
+2) Performance Dashboard — Only Admins and respective Managers should have access
+	2.1) View performance metrics
+	2.2) View appraisal history
+
+3) Appraisal Submission
+	3.1) Fill appraisal form
+	3.2) Submit button
+
+4) Admin Panel
+	4.1) View all employee appraisals
+	4.2) Generate performance reports
+
+5) Notifications
+	5.1) Email notifications for upcoming appraisals
+	5.2) In-portal notifications
+
+6) Security
+	6.1) SSL encryption
+	6.2) Two-factor authentication
+
+7) User Management — Only Admins should have access
+	7.1) Add / Edit / Delete employee accounts
+	7.2) Assign roles (Employee, Manager, Admin)
+
+8) Audit Trail
+	8.1) Log all user activities
+	8.2) View audit logs in Admin Panel
+
+9) Responsive Design
+	9.1) Accessible on desktop and mobile devices
+
+10) Help & Support
+	10.1) FAQ section
+	10.2) Contact support form
+
+11) Integration
+	11.1) Integrate with existing HR systems
+	11.2) API access for third-party tools
+	11.3) Developer documentation for APIs
+
+12) Feedback System
+	12.1) Employee feedback on appraisals
+	12.2) Manager feedback on employee performance
+
+13) Training & Development (coming soon)
+	13.1) Link to training resources
+	13.2) Track training completion
+
+14) Search Functionality
+	14.1) Search employee appraisals
+	14.2) Filter appraisals by date, rating, etc.
+
+15) Performance Goals
+	15.1) Set and track performance goals
+	15.2) Goal reminders and updates
+
+16) Mobile App (optional / future)
+	16.1) iOS and Android support
+	16.2) Push notifications for important updates
+
+17) User Interface
+	17.1) Intuitive navigation
+	17.2) Consistent design language
+
+18) Deployment
+	18.1) Cloud-based deployment
+	18.2) Continuous integration and delivery (CI/CD)
+
+19) Monitoring & Maintenance
+	19.1) Monitor system performance
+	19.2) Regular maintenance schedules
+
+20) Data Visualization
+	20.1) Interactive dashboards
+	20.2) Exportable reports
+
+21) Version Control
+	21.1) Track changes to the portal
+	21.2) Rollback options for updates
+
+22) Cross-Browser Compatibility
+	22.1) Ensure compatibility with major browsers
+	22.2) Regularly test for browser updates
+
+23) Cloud Storage
+	23.1) Secure cloud storage solutions
+	23.2) Scalable storage options
+
+Backlog / Optional (migrated from commented items)
+-------------------------------------------------
+These items were present in the original file as commented lines. They are preserved here as backlog items for future consideration.
+
+- Data Backup & Recovery
+	- Regular data backups
+	- Data recovery options
+
+- Performance Analytics
+	- Visual charts and graphs
+	- Trend analysis over time
+
+- Customization
+	- Customizable appraisal forms
+	- Customizable performance metrics
+
+- Localization
+	- Multi-language support
+	- Regional settings (date format, currency)
+
+- Compliance
+	- GDPR compliance
+	- Data retention policies
+
+- Scalability
+	- Handle increasing number of users
+	- Optimize performance for large datasets
+
+- Testing & QA
+	- Regular testing for bugs
+	- User acceptance testing
+
+- Documentation
+	- User manuals
+	- Technical documentation for developers
+
+- Legal & Ethical Considerations
+	- Adhere to labor laws
+	- Ensure ethical use of performance data
+
+- Feedback Loop
+	- Regularly update the portal based on user feedback
+	- Implement new features as needed
+
+- Accessibility (WCAG)
+	- Comply with WCAG standards
+	- Keyboard navigation support
+
+- Performance Optimization
+	- Fast load times
+	- Efficient database queries
+
+- Backup Power Solutions (infrastructure)
+	- UPS for servers
+	- Redundant power supplies
+
+- Environmental Considerations
+	- Energy-efficient hosting
+	- Sustainable practices in data centers
+
+- Social Features (coming soon)
+	- Employee recognition system
+	- Social sharing of achievements
+
+- Gamification (coming soon)
+	- Badges and rewards for performance milestones
+	- Leaderboards for top performers
+
+- API Documentation (expanded)
+	- Comprehensive API docs for developers
+	- Code samples and SDKs
+
+- Community Forum (coming soon)
+	- Employee discussion boards
+	- Q&A sections for common issues
+
+- Third-Party Integrations (coming soon)
+	- Integration with payroll systems
+	- Integration with project management tools
+
+- Data Migration
+	- Tools for migrating existing appraisal data
+	- Data validation during migration
+
+- Legal Agreements
+	- Terms of service for users
+	- Privacy policy documentation
+
+- Performance Benchmarks
+	- Regular performance testing
+	- Benchmark reports for improvements
+
+- User Training (coming soon)
+	- Training sessions for new users
+	- Ongoing training resources
+
+- Feedback Analytics
+	- Analyze feedback trends
+	- Report on feedback effectiveness
+
+- Multi-Tenancy
+	- Support for multiple organizations
+	- Data isolation between tenants
+
+- Legal Hold
+	- Implement legal hold procedures
+	- Manage data under legal hold
+
+- End-of-Life Management
+	- Plan for system decommissioning
+	- Data archiving strategies
+
+- Innovation & Updates
+	- Regularly update with new technologies
+	- Stay ahead of industry trends
+
+- UX Research
+	- Conduct UX research studies
+	- Implement findings to improve usability
+
+- Load Balancing
+	- Distribute traffic evenly
+	- Ensure high availability
+
+- Disaster Recovery Plan
+	- Comprehensive disaster recovery strategies
+	- Regular disaster recovery drills
+
+- Employee Self-Service (coming soon)
+	- Allow employees to update personal information
+	- View pay stubs and tax documents
+
+- Manager Tools
+	- Tools for performance reviews
+	- Team performance tracking
+
+- Custom Reporting
+	- Create custom reports
+	- Schedule automated report generation
+
+- Data Encryption
+	- Encrypt sensitive data at rest
+	- Encrypt data in transit
+
+- Legal Compliance Updates
+	- Stay updated with changing laws
+	- Implement necessary changes promptly

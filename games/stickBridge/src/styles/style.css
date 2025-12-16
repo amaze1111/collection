@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.sprite {
+    width: 50px;
+    height: 50px;
+}
+
+.block {
+    width: 100px;
+    height: 100px;
+}
+
+.path {
+    background-color: #ffcc00;
+    transition: all 0.3s ease;
+}
+
+.score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: red;
+    font-family: 'Arial', sans-serif;
+    display: none;
+}

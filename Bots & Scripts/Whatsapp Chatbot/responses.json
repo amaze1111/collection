@@ -1,0 +1,15 @@
+{
+  "greeting": {
+    "keywords": ["hello", "hi", "hey"],
+    "reply": "Hi, How can I help you?"
+  },
+  "opinion": {
+    "keywords": ["not working", "opinion"],
+    "reply": "Please share more details about the issue."
+  },
+    "hari": {
+    "keywords": ["gems", "prize"],
+    "reply": "PLease share more details about it"
+  }
+}
+}

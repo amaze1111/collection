@@ -1,0 +1,16 @@
+{
+  "name": "stick-bridge-game",
+  "version": "1.0.0",
+  "description": "A simple HTML5 game where players control a character to navigate through blocks by creating paths.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step not defined yet.'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

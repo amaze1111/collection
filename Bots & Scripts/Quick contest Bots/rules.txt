@@ -1,0 +1,15 @@
+1. There will be 2 contests of size 4 running parallely
+2. Each contest will be of 10 mins duration
+3. Each contest will respawn if it gets full(4 entries received) or it’s duration is over.
+4. Each contest will have entry fee of INR 10
+5. Participants will play a game and post their best score on the leaderboard
+6. Contest will have 2 winners based on highest score - 1st winner gets INR 25, 2nd winner gets INR 10
+7. Contest will have both user and bot entries
+8. Bot will also pay the entry fees and collect win amount
+9. A contest can have a maximum of 3 bots
+10. Bot will enter the contest only if a user has already joined, i.e. no contest will have bot as the first entry
+11. Subsequent bot entries will be contingent on no new user entry for a duration of 1 minute
+12. All bots will maintain a global account balance.
+13. Account balance will be updated only at the settlement of the contest.
+14. The bot's target win amount can only be 10 or 25 (from the contest's winning ranks). If (account balance - total entry fees paid by all bots (excluding the one about to join) in all live contests + expected win_amount of live bots who have posted the score) < -10, the bot will target a win amount of 25 (1st rank); otherwise, it will target a win amount of 10 (2nd rank).
+15. It is possible that after a bot enters while trying to win and posts a higher score than existing user(s), some other user joins the contest and beats the score.
